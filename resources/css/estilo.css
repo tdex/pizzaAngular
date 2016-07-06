@@ -13,16 +13,16 @@
 }
 
 .pizza img {
-    margin: 0 auto;
+    margin: 0 auto 10px;
     display: block;
-    width: 80%;
+    width: 50%;
     /*height: 200px;*/
     border-radius: 50%;
     border: 2px solid whitesmoke;
     box-shadow: 0 0 10px grey;
 }
 
-.panel {
+.painel {
     margin-top: 10px;
 }
 
@@ -31,9 +31,16 @@
 }
 
 .pizza .avaliacao {
+    border-radius: 3px;
     background-color: #e3faea;
     border-left: 5px solid cornflowerblue;
-    box-shadow: 5px 4px 6px -4px grey;
+    /*box-shadow: 5px 4px 6px -4px grey;*/
     padding: 3px;
     margin-bottom: 5px;
+}
+
+.novaAvaliacao{
+    background-color: #e5f4f4;
+    border-radius: 3px;
+    padding: 10px;
 }

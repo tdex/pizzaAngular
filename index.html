@@ -22,29 +22,60 @@
     <div class="row">
         <section ng-controller="EstoqueController as item">
             <article ng-repeat="pizza in item.products" ng-show="pizza.disponivel" class="col-md-4 pizza">
-                <h2>Pizza {{pizza.nome}}</h2>
-                <img ng-src="{{pizza.img}}">
-                <p>Valor: {{pizza.preco | currency:"R$"}}</p>
-                <p>Descrição: {{pizza.descricao}}</p>
-                <section ng-controller="PanelController as panel">
-                    <ul class="nav nav-pills">
-                        <li ng-class="{active: panel.painelSelecionado(0)}">
-                            <a href ng-click="panel.selecionaPainel(0)">Realizar Pedido</a>
-                        </li>
-                        <li ng-class="{active: panel.painelSelecionado(1)}">
-                            <a href ng-click="panel.selecionaPainel(1)">Avaliações</a>
-                        </li>
-                    </ul>
-                    <div class="panel" ng-show="panel.painelSelecionado(0)">
-                        <button class="btn btn-default" ng-show="pizza.disponivel">Comprar</button>
-                    </div>
-                    <div class="panel" ng-show="panel.painelSelecionado(1)">
-                        <div class="avaliacao" ng-repeat="review in pizza.reviews">
-                            <h4>{{review.descricao + " - " + review.autor}}</h4>
-                            <span>{{review.estrelas + " estrelas"}}</span>
+                <div class="pizza-content">
+                    <h2>Pizza {{pizza.nome}}</h2>
+                    <img ng-src="{{pizza.img}}">
+                    <p>Valor: {{pizza.preco | currency:"R$"}}</p>
+                    <p>Descrição: {{pizza.descricao}}</p>
+                    <p>Estoque: {{pizza.qtd}}</p>
+                    <section ng-controller="PanelController as panel">
+                        <ul class="nav nav-pills">
+                            <li ng-class="{active: panel.painelSelecionado(0)}">
+                                <a href ng-click="panel.selecionaPainel(0)">Realizar Pedido</a>
+                            </li>
+                            <li ng-class="{active: panel.painelSelecionado(1)}">
+                                <a href ng-click="panel.selecionaPainel(1)">Avaliações</a>
+                            </li>
+                        </ul>
+
+
+                        <div class="painel" ng-show="panel.painelSelecionado(0)">
+                            <form name="compra" >
+                                <input type="submit" class="btn btn-default" ng-show="pizza.disponivel" value="Comprar" ng-click="item.comprarPizza(pizza)">
+                            </form>
                         </div>
-                    </div>
-                </section>
+
+                        <div class="painel" ng-show="panel.painelSelecionado(1)">
+                            <div class="avaliacao" ng-repeat="review in pizza.reviews">
+                                <h4>{{review.descricao}} - <cite>{{review.autor}}</cite></h4>
+                                <span>{{review.estrelas + " estrelas"}}</span>
+                            </div>
+                            <form name="novoReview" class="novaAvaliacao" ng-controller="ReviewController as reviewCtrl"
+                                  ng-submit="novoReview.$valid && reviewCtrl.addReview(pizza)" novalidate>
+                                <!--<div class="avaliacao" ng-hide="reviewCtrl.avaliacao.semValor">-->
+                                <!--<h4>{{reviewCtrl.avaliacao.descricao}} - <cite>{{reviewCtrl.avaliacao.autor}}</cite></h4>-->
+                                <!--<span>{{reviewCtrl.avaliacao.estrelas + " estrelas"}}</span>-->
+                                <!--</div>-->
+                                <label for="desc">Descrição:</label>
+                                <textarea id="desc" ng-model="reviewCtrl.avaliacao.descricao"
+                                          class="form-control"></textarea>
+                                <label for="autor">Autor:</label>
+                                <input type="text" id="autor" ng-model="reviewCtrl.avaliacao.autor"
+                                       class="form-control" required>
+                                <label for="level">Avaliação:</label>
+                                <select ng-model="reviewCtrl.avaliacao.estrelas" id="level" required
+                                        class="form-control">
+                                    <option value="1">1 estrela</option>
+                                    <option value="2">2 estrelas</option>
+                                    <option value="3">3 estrelas</option>
+                                    <option value="4">4 estrelas</option>
+                                    <option value="5">5 estrelas</option>
+                                </select><br>
+                                <input type="submit" class="btn btn-success">
+                            </form>
+                        </div>
+                    </section>
+                </div>
             </article>
         </section>
     </div>

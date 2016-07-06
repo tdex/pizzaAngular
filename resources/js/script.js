@@ -6,6 +6,19 @@
 
     app.controller('EstoqueController', function () {
         this.products = pizzas;
+
+        this.comprarPizza = function (pizza) {
+            for (var p in pizzas) {
+                if (pizza.nome === p.nome) {
+                    if (p.disponivel && p.qtd > 0) {
+                        p.qtd -= 1;
+                        if (p.qtd === 0) {
+                            p.disponivel = false;
+                        }
+                    }
+                }
+            }
+        };
     });
 
     var pizzas = [
@@ -81,6 +94,15 @@
         }
     ];
 
+    app.controller('ReviewController', function () {
+        this.avaliacao = {};
+
+        this.addReview = function (pizza) {
+            pizza.reviews.push(this.avaliacao);
+            this.avaliacao = {};
+        };
+    });
+
     app.controller('PanelController', function () {
         this.tab = 0;
 
@@ -93,18 +115,7 @@
         }
     });
 
-    var comprarPizza = function (pizza) {
-        for (var p in pizzas) {
-            if (pizza.nome === p.nome) {
-                if (p.disponivel && p.qtd > 0) {
-                    p.qtd -= 1;
-                    if (p.qtd === 0) {
-                        p.disponivel = false;
-                    }
-                }
-            }
-        }
-    }
+
 
 
 })();
