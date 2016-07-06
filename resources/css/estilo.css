@@ -1,0 +1,28 @@
+.cabecalho {
+    text-align: center;
+    border-bottom: 1px dashed grey;
+}
+
+.pizza h2 {
+    margin: 0 0 10px;
+}
+
+.pizza {
+    /*border: 1px solid grey;*/
+    padding: 15px;
+}
+
+.panel{
+    margin-top: 10px;
+}
+.avaliacao h4 {
+    margin: 2px 0 5px;
+}
+
+.pizza .avaliacao {
+    background-color: #e3faea;
+    border-left: 5px solid cornflowerblue;
+    box-shadow: 5px 4px 6px -4px grey;
+    padding: 3px;
+    margin-bottom: 5px;
+}

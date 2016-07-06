@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="store">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Treinamento Angular</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="resources/css/estilo.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.5.7/angular-route.min.js"></script>
+    <script src="resources/js/script.js"></script>
+</head>
+<body>
+<div class="container">
+    <header class="cabecalho">
+        <h1>Pizza Planet</h1>
+        <h2>A pizza do seu jeito</h2>
+    </header>
+    <div class="row">
+        <section ng-controller="EstoqueController as item">
+            <article ng-repeat="pizza in item.products" ng-show="pizza.disponivel" class="col-md-4 pizza">
+                <h2>Pizza {{pizza.nome}}</h2>
+                <p>Valor: {{pizza.preco | currency:"R$"}}</p>
+                <p>Descrição: {{pizza.descricao}}</p>
+                <section ng-controller="PanelController as panel">
+                    <ul class="nav nav-pills">
+                        <li ng-class="{active: panel.painelSelecionado(0)}">
+                            <a href ng-click="panel.selecionaPainel(0)">Realizar Pedido</a>
+                        </li>
+                        <li ng-class="{active: panel.painelSelecionado(1)}">
+                            <a href ng-click="panel.selecionaPainel(1)">Avaliações</a>
+                        </li>
+                    </ul>
+                    <div class="panel" ng-show="panel.painelSelecionado(0)">
+                        <button class="btn btn-default" ng-show="pizza.disponivel">Comprar</button>
+                    </div>
+                    <div class="panel" ng-show="panel.painelSelecionado(1)">
+                        <div class="avaliacao" ng-repeat="review in pizza.reviews">
+                            <h4>{{review.descricao + " - " + review.autor}}</h4>
+                            <span>{{review.estrelas + " estrelas"}}</span>
+                        </div>
+                    </div>
+                </section>
+            </article>
+        </section>
+    </div>
+</div>
+</body>
+</html>
