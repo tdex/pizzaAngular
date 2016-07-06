@@ -15,7 +15,7 @@
             descricao: 'pizza de frango e bacon a moda delícia',
             disponivel: true,
             qtd: 4,
-            img: './img/frangobacon.jpg',
+            img: 'resources/img/frangobacon.jpg',
             reviews: [
                 {
                     estrelas: 5,
@@ -35,7 +35,7 @@
             descricao: 'Queijo, molho de tomate e calabresa',
             disponivel: true,
             qtd: 2,
-            img: './img/calabresa.jpg',
+            img: 'resources/img/calabresa.jpg',
             reviews: [
                 {
                     estrelas: 5,
@@ -55,7 +55,7 @@
             descricao: 'Queijo, presunto, bacon, ovo e tomate',
             disponivel: false,
             qtd: 0,
-            img: './img/portuguesa.jpg',
+            img: 'resources/img/portuguesa.jpg',
             reviews: [
                 {
                     estrelas: 5,
@@ -70,7 +70,7 @@
             descricao: 'Queijo prato, mussarela, coalho, catupiri',
             disponivel: true,
             qtd: 1,
-            img: './img/quatroqueijos.jpg',
+            img: 'resources/img/quatroqueijos.jpg',
             reviews: [
                 {
                     estrelas: 2,

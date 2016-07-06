@@ -23,6 +23,7 @@
         <section ng-controller="EstoqueController as item">
             <article ng-repeat="pizza in item.products" ng-show="pizza.disponivel" class="col-md-4 pizza">
                 <h2>Pizza {{pizza.nome}}</h2>
+                <img ng-src="{{pizza.img}}">
                 <p>Valor: {{pizza.preco | currency:"R$"}}</p>
                 <p>Descrição: {{pizza.descricao}}</p>
                 <section ng-controller="PanelController as panel">

@@ -12,9 +12,20 @@
     padding: 15px;
 }
 
-.panel{
+.pizza img {
+    margin: 0 auto;
+    display: block;
+    width: 80%;
+    /*height: 200px;*/
+    border-radius: 50%;
+    border: 2px solid whitesmoke;
+    box-shadow: 0 0 10px grey;
+}
+
+.panel {
     margin-top: 10px;
 }
+
 .avaliacao h4 {
     margin: 2px 0 5px;
 }
