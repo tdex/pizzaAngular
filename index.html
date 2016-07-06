@@ -25,7 +25,7 @@
                 <div class="pizza-content">
                     <h2>Pizza {{pizza.nome}}</h2>
                     <img ng-src="{{pizza.img}}">
-                    <p>Valor: {{pizza.preco | currency:"R$"}}</p>
+                    <p>Valor: {{pizza.preco | currency:"R$ "}}</p>
                     <p>Descrição: {{pizza.descricao}}</p>
                     <p>Estoque: {{pizza.qtd}}</p>
                     <section ng-controller="PanelController as panel">
@@ -40,8 +40,9 @@
 
 
                         <div class="painel" ng-show="panel.painelSelecionado(0)">
-                            <form name="compra" >
-                                <input type="submit" class="btn btn-default" ng-show="pizza.disponivel" value="Comprar" ng-click="item.comprarPizza(pizza)">
+                            <form name="compra">
+                                <input type="submit" class="btn btn-default" ng-show="pizza.disponivel" value="Comprar"
+                                       ng-click="item.comprarPizza(pizza)">
                             </form>
                         </div>
 
@@ -52,10 +53,6 @@
                             </div>
                             <form name="novoReview" class="novaAvaliacao" ng-controller="ReviewController as reviewCtrl"
                                   ng-submit="novoReview.$valid && reviewCtrl.addReview(pizza)" novalidate>
-                                <!--<div class="avaliacao" ng-hide="reviewCtrl.avaliacao.semValor">-->
-                                <!--<h4>{{reviewCtrl.avaliacao.descricao}} - <cite>{{reviewCtrl.avaliacao.autor}}</cite></h4>-->
-                                <!--<span>{{reviewCtrl.avaliacao.estrelas + " estrelas"}}</span>-->
-                                <!--</div>-->
                                 <label for="desc">Descrição:</label>
                                 <textarea id="desc" ng-model="reviewCtrl.avaliacao.descricao"
                                           class="form-control"></textarea>

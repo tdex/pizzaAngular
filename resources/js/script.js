@@ -53,11 +53,11 @@
                 {
                     estrelas: 5,
                     descricao: 'Muito bom, recomendo',
-                    autor: 'Tarcísio'
+                    autor: 'Renata'
                 },
                 {
                     estrelas: 2,
-                    descricao: 'Prefiro a de camarão',
+                    descricao: 'Bem exótica',
                     autor: 'Mayra'
                 }
             ]
@@ -114,8 +114,6 @@
             return this.tab == item;
         }
     });
-
-
 
 
 })();
